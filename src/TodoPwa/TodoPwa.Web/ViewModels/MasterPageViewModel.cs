@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DotVVM.Framework.ViewModel;
+﻿using DotVVM.Framework.ViewModel;
 
 namespace TodoPwa.Web.ViewModels
 {
     public class MasterPageViewModel : DotvvmViewModelBase
     {
+        public bool IsPageOffline { get; set; } = false;
     }
 }

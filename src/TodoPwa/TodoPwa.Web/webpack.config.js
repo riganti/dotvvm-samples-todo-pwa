@@ -7,7 +7,31 @@ module.exports = [
         mode: "development",
         entry:
         {
-            serviceWorker: [`${scriptsPath}/service-worker.ts`]
+            app: [`${scriptsPath}/App/App.ts`]
+        },
+        output: {
+            path: path.resolve(__dirname, "wwwroot"),
+            filename: "app.js"
+        },
+        resolve: {
+            extensions: [".js", ".ts"],
+            plugins: [new tsconfigPathsPlugin({ configFile: `${scriptsPath}/App/tsconfig.json` })]
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.ts$/,
+                    loader: "ts-loader"
+                }
+            ]
+        },
+        externals: ["tls", "net", "fs"]
+    },
+    {
+        mode: "development",
+        entry:
+        {
+            serviceWorker: [`${scriptsPath}/ServiceWorker/ServiceWorker.ts`]
         },
         output: {
             path: path.resolve(__dirname, "wwwroot"),
@@ -15,7 +39,7 @@ module.exports = [
         },
         resolve: {
             extensions: [".js", ".ts"],
-            plugins: [new tsconfigPathsPlugin({ configFile: `${scriptsPath}/tsconfig.json` })]
+            plugins: [new tsconfigPathsPlugin({ configFile: `${scriptsPath}/ServiceWorker/tsconfig.json` })]
         },
         module: {
             rules: [

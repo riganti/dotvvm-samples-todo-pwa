@@ -86,27 +86,27 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./Resources/Scripts/OfflineFallbackRouteHandler.ts":
+/***/ "./Resources/Scripts/ServiceWorker/OfflineFallbackRouteHandler.ts":
+/*!************************************************************************!*\
+  !*** ./Resources/Scripts/ServiceWorker/OfflineFallbackRouteHandler.ts ***!
+  \************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nclass OfflineFallbackRouteHandler {\r\n    constructor(offlineFallbackPage) {\r\n        this.offlineFallbackPage = offlineFallbackPage;\r\n    }\r\n    handle(options) {\r\n        const fetchEvent = options.event;\r\n        if (fetchEvent !== undefined && fetchEvent !== null && fetchEvent.request.destination === \"document\") {\r\n            return caches.match(this.offlineFallbackPage);\r\n        }\r\n        else {\r\n            return new Promise(() => Response.error());\r\n        }\r\n    }\r\n}\r\nexports.OfflineFallbackRouteHandler = OfflineFallbackRouteHandler;\r\n\n\n//# sourceURL=webpack:///./Resources/Scripts/ServiceWorker/OfflineFallbackRouteHandler.ts?");
+
+/***/ }),
+
+/***/ "./Resources/Scripts/ServiceWorker/ServiceWorker.ts":
 /*!**********************************************************!*\
-  !*** ./Resources/Scripts/OfflineFallbackRouteHandler.ts ***!
+  !*** ./Resources/Scripts/ServiceWorker/ServiceWorker.ts ***!
   \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar OfflineFallbackRouteHandler = (function () {\r\n    function OfflineFallbackRouteHandler(offlineFallbackPage) {\r\n        this.offlineFallbackPage = offlineFallbackPage;\r\n    }\r\n    OfflineFallbackRouteHandler.prototype.handle = function (options) {\r\n        var fetchEvent = options.event;\r\n        if (fetchEvent !== undefined && fetchEvent !== null && fetchEvent.request.destination === \"document\") {\r\n            return caches.match(this.offlineFallbackPage);\r\n        }\r\n        else {\r\n            return new Promise(function () { return Response.error(); });\r\n        }\r\n    };\r\n    return OfflineFallbackRouteHandler;\r\n}());\r\nexports.OfflineFallbackRouteHandler = OfflineFallbackRouteHandler;\r\n\n\n//# sourceURL=webpack:///./Resources/Scripts/OfflineFallbackRouteHandler.ts?");
-
-/***/ }),
-
-/***/ "./Resources/Scripts/service-worker.ts":
-/*!*********************************************!*\
-  !*** ./Resources/Scripts/service-worker.ts ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nvar workbox_core_1 = __webpack_require__(/*! workbox-core */ \"./node_modules/workbox-core/index.mjs\");\r\nvar workbox_routing_1 = __webpack_require__(/*! workbox-routing */ \"./node_modules/workbox-routing/index.mjs\");\r\nvar workbox_precaching_1 = __webpack_require__(/*! workbox-precaching */ \"./node_modules/workbox-precaching/index.mjs\");\r\nvar workbox_expiration_1 = __webpack_require__(/*! workbox-expiration */ \"./node_modules/workbox-expiration/index.mjs\");\r\nvar workbox_strategies_1 = __webpack_require__(/*! workbox-strategies */ \"./node_modules/workbox-strategies/index.mjs\");\r\nvar OfflineFallbackRouteHandler_1 = __webpack_require__(/*! ./OfflineFallbackRouteHandler */ \"./Resources/Scripts/OfflineFallbackRouteHandler.ts\");\r\nvar serviceWorker = self;\r\nvar offlineFallbackPage = \"/offline/offline-page.html\";\r\nvar cacheNamePrefix = \"todo-pwa\";\r\nvar cacheNameSuffix = \"v1\";\r\nvar cacheNamePrecache = \"install-time\";\r\nvar cacheNameRuntime = \"run-time\";\r\nvar runtimeCacheFullName = cacheNamePrefix + \"-\" + cacheNameRuntime + \"-\" + cacheNameSuffix;\r\nvar precacheCacheFullName = cacheNamePrefix + \"-\" + cacheNamePrecache + \"-\" + cacheNameSuffix;\r\nworkbox_core_1.setCacheNameDetails({\r\n    prefix: cacheNamePrefix,\r\n    suffix: cacheNameSuffix,\r\n    precache: cacheNamePrecache,\r\n    runtime: cacheNameRuntime\r\n});\r\nworkbox_precaching_1.precacheAndRoute([\r\n    { url: offlineFallbackPage, revision: null },\r\n    { url: \"/offline/logo.png\", revision: null }\r\n]);\r\nworkbox_routing_1.registerRoute(/.*\\/.*/, new workbox_strategies_1.StaleWhileRevalidate({\r\n    cacheName: runtimeCacheFullName,\r\n    plugins: [\r\n        new workbox_expiration_1.ExpirationPlugin({ maxAgeSeconds: 24 * 60 * 60 })\r\n    ]\r\n}));\r\nworkbox_routing_1.setCatchHandler(new OfflineFallbackRouteHandler_1.OfflineFallbackRouteHandler(offlineFallbackPage));\r\nserviceWorker.oninstall = function (event) {\r\n    serviceWorker.skipWaiting();\r\n    event.waitUntil(install());\r\n};\r\nfunction install() {\r\n}\r\n\n\n//# sourceURL=webpack:///./Resources/Scripts/service-worker.ts?");
+eval("\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst workbox_core_1 = __webpack_require__(/*! workbox-core */ \"./node_modules/workbox-core/index.mjs\");\r\nconst workbox_routing_1 = __webpack_require__(/*! workbox-routing */ \"./node_modules/workbox-routing/index.mjs\");\r\nconst workbox_precaching_1 = __webpack_require__(/*! workbox-precaching */ \"./node_modules/workbox-precaching/index.mjs\");\r\nconst workbox_expiration_1 = __webpack_require__(/*! workbox-expiration */ \"./node_modules/workbox-expiration/index.mjs\");\r\nconst workbox_strategies_1 = __webpack_require__(/*! workbox-strategies */ \"./node_modules/workbox-strategies/index.mjs\");\r\nconst OfflineFallbackRouteHandler_1 = __webpack_require__(/*! ./OfflineFallbackRouteHandler */ \"./Resources/Scripts/ServiceWorker/OfflineFallbackRouteHandler.ts\");\r\nconst serviceWorker = self;\r\nconst offlineFallbackPage = \"/offline/offline-page.html\";\r\nconst cacheNamePrefix = \"todo-pwa\";\r\nconst cacheNameSuffix = \"v1\";\r\nconst cacheNamePrecache = \"install-time\";\r\nconst cacheNameRuntime = \"run-time\";\r\nconst runtimeCacheFullName = `${cacheNamePrefix}-${cacheNameRuntime}-${cacheNameSuffix}`;\r\nconst precacheCacheFullName = `${cacheNamePrefix}-${cacheNamePrecache}-${cacheNameSuffix}`;\r\nworkbox_core_1.setCacheNameDetails({\r\n    prefix: cacheNamePrefix,\r\n    suffix: cacheNameSuffix,\r\n    precache: cacheNamePrecache,\r\n    runtime: cacheNameRuntime\r\n});\r\nworkbox_precaching_1.precacheAndRoute([\r\n    { url: offlineFallbackPage, revision: null },\r\n    { url: \"/offline/logo.png\", revision: null }\r\n]);\r\nworkbox_routing_1.registerRoute(\"/online-status-check\", new workbox_strategies_1.NetworkOnly());\r\nworkbox_routing_1.registerRoute(/.*\\/.*/, new workbox_strategies_1.StaleWhileRevalidate({\r\n    cacheName: \"temporary\",\r\n    plugins: [\r\n        new workbox_expiration_1.ExpirationPlugin({ maxAgeSeconds: 24 * 60 * 60 })\r\n    ]\r\n}));\r\nworkbox_routing_1.setCatchHandler(new OfflineFallbackRouteHandler_1.OfflineFallbackRouteHandler(offlineFallbackPage));\r\nserviceWorker.oninstall = event => {\r\n    serviceWorker.skipWaiting();\r\n    event.waitUntil(install());\r\n};\r\nfunction install() {\r\n}\r\n\n\n//# sourceURL=webpack:///./Resources/Scripts/ServiceWorker/ServiceWorker.ts?");
 
 /***/ }),
 
@@ -1095,13 +1095,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ }),
 
 /***/ 0:
-/*!***************************************************!*\
-  !*** multi ./Resources/Scripts/service-worker.ts ***!
-  \***************************************************/
+/*!****************************************************************!*\
+  !*** multi ./Resources/Scripts/ServiceWorker/ServiceWorker.ts ***!
+  \****************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("module.exports = __webpack_require__(/*! ./Resources/Scripts/service-worker.ts */\"./Resources/Scripts/service-worker.ts\");\n\n\n//# sourceURL=webpack:///multi_./Resources/Scripts/service-worker.ts?");
+eval("module.exports = __webpack_require__(/*! ./Resources/Scripts/ServiceWorker/ServiceWorker.ts */\"./Resources/Scripts/ServiceWorker/ServiceWorker.ts\");\n\n\n//# sourceURL=webpack:///multi_./Resources/Scripts/ServiceWorker/ServiceWorker.ts?");
 
 /***/ })
 

@@ -17,4 +17,5 @@
         navigator.serviceWorker.register('/service-worker.js');
     }
 </dot:InlineScript>
+<dot:RequiredResource Name="app-js"/>
 </html>

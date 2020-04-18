@@ -9,6 +9,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="dotvvm_serialized_config.json.tmp" />
+    <None Remove="Resources\Scripts\App.ts" />
+    <None Remove="Resources\Scripts\CustomRouteHandler.ts" />
     <None Remove="Resources\Scripts\OfflineFallbackRouteHandler.ts" />
     <None Remove="Resources\service-worker.ts" />
   </ItemGroup>
@@ -33,7 +35,11 @@
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Resources\Scripts\OfflineFallbackRouteHandler.ts" />
-    <TypeScriptCompile Include="Resources\Scripts\service-worker.ts" />
+    <TypeScriptCompile Include="Resources\Scripts\App\App.ts" />
+    <TypeScriptCompile Include="Resources\Scripts\ServiceWorker\CustomRouteHandler.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="Resources\Scripts\ServiceWorker\OfflineFallbackRouteHandler.ts" />
+    <TypeScriptCompile Include="Resources\Scripts\ServiceWorker\ServiceWorker.ts" />
   </ItemGroup>
 </Project>

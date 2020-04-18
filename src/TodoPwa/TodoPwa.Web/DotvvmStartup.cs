@@ -1,5 +1,7 @@
 ﻿using DotVVM.Framework.Configuration;
+using DotVVM.Framework.ResourceManagement;
 using Microsoft.Extensions.DependencyInjection;
+using TodoPwa.Web.Presenters;
 
 namespace TodoPwa.Web
 {
@@ -17,6 +19,7 @@ namespace TodoPwa.Web
         {
             config.RouteTable.Add("TodoItemListPage", "", "Views/TodoItemListPage.dothtml");
             config.RouteTable.Add("TodoItemNewPage", "todo-item-new", "Views/TodoItemNewPage.dothtml");
+            config.RouteTable.Add("OnlineStatusCheckPresenter", "online-status-check", serviceProvider => new OnlineStatusCheckPresenter());
         }
 
         private void ConfigureControls(DotvvmConfiguration config, string applicationPath)
@@ -26,7 +29,10 @@ namespace TodoPwa.Web
 
         private void ConfigureResources(DotvvmConfiguration config, string applicationPath)
         {
-            // register custom resources and adjust paths to the built-in resources
+            config.Resources.Register("app-js", new ScriptResource
+            {
+                Location = new FileResourceLocation("wwwroot/app.js")
+            });
         }
 
         public void ConfigureServices(IDotvvmServiceCollection options)

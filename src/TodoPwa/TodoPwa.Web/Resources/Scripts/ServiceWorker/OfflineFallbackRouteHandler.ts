@@ -10,7 +10,6 @@ export class OfflineFallbackRouteHandler implements RouteHandlerObject {
     handle(options: RouteHandlerCallbackOptions): Promise<Response> {
         const fetchEvent = options.event as FetchEvent;
         if (fetchEvent !== undefined && fetchEvent !== null && fetchEvent.request.destination === "document") {
-
             return caches.match(this.offlineFallbackPage);
         } else {
             return new Promise((): Response => Response.error());

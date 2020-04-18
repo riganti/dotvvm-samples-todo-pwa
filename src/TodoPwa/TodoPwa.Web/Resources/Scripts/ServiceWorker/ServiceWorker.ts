@@ -29,8 +29,10 @@ precacheAndRoute([
     { url: "/offline/logo.png", revision: null }
 ]);
 
+registerRoute("/online-status-check", new NetworkOnly());
+
 registerRoute(/.*\/.*/, new StaleWhileRevalidate({
-    cacheName: runtimeCacheFullName,
+    cacheName: "temporary",
     plugins: [
         new ExpirationPlugin({ maxAgeSeconds: 24 * 60 * 60 })
     ]
@@ -46,5 +48,3 @@ serviceWorker.oninstall = event => {
 function install() {
     
 }
-
-
