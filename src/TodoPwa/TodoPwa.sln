@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoPwa.Web", "TodoPwa.Web\TodoPwa.Web.csproj", "{BC4FF25A-A4ED-42ED-AE18-9EDE4D384041}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC4FF25A-A4ED-42ED-AE18-9EDE4D384041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC4FF25A-A4ED-42ED-AE18-9EDE4D384041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC4FF25A-A4ED-42ED-AE18-9EDE4D384041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC4FF25A-A4ED-42ED-AE18-9EDE4D384041}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D8C883B8-C741-4CD9-B83A-F3A45C3D5782}
+	EndGlobalSection
+EndGlobal
