@@ -11,4 +11,10 @@
 <body>
 	<dot:ContentPlaceHolder ID="MainContent" />
 </body>
+
+<dot:InlineScript>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js');
+    }
+</dot:InlineScript>
 </html>

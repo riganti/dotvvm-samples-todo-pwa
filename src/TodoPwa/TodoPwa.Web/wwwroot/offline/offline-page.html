@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html {
+            font-size: 62.5%;
+            height: 100%;
+        }
+
+        body {
+            width: 100%;
+            max-width: 100vw;
+            min-height: 100%;
+            margin: 0;
+            background-color: #fbc93c;
+        }
+
+        .offline {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+            .offline * {
+                font-family: 'Open Sans', sans-serif;
+            }
+
+        .offline__container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            padding: 0 2rem;
+            box-sizing: border-box;
+            text-align: center;
+            width: 100%;
+        }
+
+        .offline__title {
+            font-size: 3rem;
+            text-align: center;
+            margin: 0;
+            margin-bottom: 1.5rem;
+            color: #004b70;
+        }
+
+        .offline__desc {
+            text-align: center;
+            font-size: 1.9rem;
+            color: #004b70;
+        }
+
+        .offline svg {
+            display: block;
+            margin: 0 auto;
+            margin-top: 3rem;
+            width: 16rem;
+            height: 16rem;
+        }
+
+        img {
+            width: 20rem;
+            display: block;
+            margin: 0 auto;
+            margin-bottom: 3rem;
+        }
+
+        .offline__button {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            -moz-flex-wrap: nowrap;
+            -ms-flex-wrap: nowrap;
+            -o-flex-wrap: nowrap;
+            -webkit-flex-wrap: nowrap;
+            flex-wrap: nowrap;
+            -ms-align-items: center;
+            -o-align-items: center;
+            -webkit-align-items: center;
+            align-items: center;
+            -moz-align-content: center;
+            -o-align-content: center;
+            -webkit-align-content: center;
+            align-content: center;
+            -o-justify-content: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            width: auto;
+            max-width: 24rem;
+            height: 4rem;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 0 2rem;
+            background-image: none;
+            background-color: #ffffff;
+            -ms-border-radius: 2rem;
+            border-radius: 2rem;
+            text-align: center;
+            text-decoration: none;
+            text-transform: uppercase;
+            -ms-transition: all ease-in-out 0.2s;
+            -o-transition: all ease-in-out 0.2s;
+            -webkit-transition: all ease-in-out 0.2s;
+            transition: all ease-in-out 0.2s;
+            cursor: pointer;
+            -webkit-appearance: none;
+            border: 0.1rem solid #ffffff;
+            margin-top: 3rem;
+        }
+
+        .offline__button span {
+                font-family: 'Open Sans', sans-serif;
+                font-size: 1.6rem;
+                color: #004b70;
+                font-weight: 500;
+                text-align: center;
+            }
+
+            .offline__button:before {
+                left: 0;
+                -ms-transform: translate(0,-50%) rotate(-135deg);
+                -webkit-transform: translate(0,-50%) rotate(-135deg);
+                transform: translate(0,-50%) rotate(-135deg);
+            }
+
+        .offline__button:after {
+            right: 0;
+            -ms-transform: translate(0,-50%) rotate(45deg);
+            -webkit-transform: translate(0,-50%) rotate(45deg);
+            transform: translate(0,-50%) rotate(45deg);
+        }
+
+        @media screen and (max-width: 768px) {
+            .offline__button:before, .offline__button:after {
+                display: none;
+            }
+        }
+    </style>
+    <meta charset="utf-8" />
+    <meta name="author" content="Riganti s.r.o." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>TODO PWA - Offline page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+<body>
+    <div class="offline">
+        <div class="offline__container">
+            <img src="/offline/logo.png" alt="Logo" />
+            <h1 class="offline__title">
+                Your device is offline
+            </h1>
+            <p class="offline__desc">
+                Please check the internet connection
+            </p>
+            <a href="/" class="offline__button">
+                <span>Home page</span>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
