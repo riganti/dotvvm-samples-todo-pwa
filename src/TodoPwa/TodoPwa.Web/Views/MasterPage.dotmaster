@@ -4,13 +4,11 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>TodoPwa.Web</title>
+    <title>TODO PWA</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/icon-64x64.png" />
+    <link rel="manifest" href="/manifest.json" />
 </head>
 <body>
-
- 	
-
 	<dot:ContentPlaceHolder ID="MainContent" />
-
 </body>
 </html>
