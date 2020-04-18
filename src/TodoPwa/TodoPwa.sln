@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoPwa.Web", "TodoPwa.Web\TodoPwa.Web.csproj", "{BC4FF25A-A4ED-42ED-AE18-9EDE4D384041}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoPwa.Web", "TodoPwa.Web\TodoPwa.Web.csproj", "{BC4FF25A-A4ED-42ED-AE18-9EDE4D384041}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoPwa.DAL", "TodoPwa.DAL\TodoPwa.DAL.csproj", "{9BD85227-AC62-4906-9D96-F061B0944B0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoPwa.DAL", "TodoPwa.DAL\TodoPwa.DAL.csproj", "{9BD85227-AC62-4906-9D96-F061B0944B0E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TodoPwa.BL", "TodoPwa.BL\TodoPwa.BL.csproj", "{96788712-2BA0-440B-A354-BFD316E8EEE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TodoPwa.Common", "TodoPwa.Common\TodoPwa.Common.csproj", "{76D1EA8F-1EE6-44C2-9D81-DC70045BEF67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{9BD85227-AC62-4906-9D96-F061B0944B0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BD85227-AC62-4906-9D96-F061B0944B0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BD85227-AC62-4906-9D96-F061B0944B0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96788712-2BA0-440B-A354-BFD316E8EEE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96788712-2BA0-440B-A354-BFD316E8EEE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96788712-2BA0-440B-A354-BFD316E8EEE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96788712-2BA0-440B-A354-BFD316E8EEE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D1EA8F-1EE6-44C2-9D81-DC70045BEF67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D1EA8F-1EE6-44C2-9D81-DC70045BEF67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D1EA8F-1EE6-44C2-9D81-DC70045BEF67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D1EA8F-1EE6-44C2-9D81-DC70045BEF67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

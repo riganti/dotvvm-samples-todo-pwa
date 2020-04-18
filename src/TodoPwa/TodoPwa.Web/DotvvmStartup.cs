@@ -1,6 +1,4 @@
 ﻿using DotVVM.Framework.Configuration;
-using DotVVM.Framework.ResourceManagement;
-using DotVVM.Framework.Routing;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace TodoPwa.Web
@@ -18,7 +16,7 @@ namespace TodoPwa.Web
         private void ConfigureRoutes(DotvvmConfiguration config, string applicationPath)
         {
             config.RouteTable.Add("Default", "", "Views/Default.dothtml");
-            config.RouteTable.AutoDiscoverRoutes(new DefaultRouteStrategy(config));    
+            config.RouteTable.Add("TodoItemNewPage", "todo-item-new", "Views/TodoItemNewPage.dothtml");
         }
 
         private void ConfigureControls(DotvvmConfiguration config, string applicationPath)
@@ -31,9 +29,9 @@ namespace TodoPwa.Web
             // register custom resources and adjust paths to the built-in resources
         }
 
-		public void ConfigureServices(IDotvvmServiceCollection options)
+        public void ConfigureServices(IDotvvmServiceCollection options)
         {
             options.AddDefaultTempStorages("temp");
-		}
+        }
     }
 }
