@@ -1,0 +1,11 @@
+﻿@viewModel TodoPwa.Web.ViewModels.TodoItemListPageViewModel, TodoPwa.Web
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <dot:Repeater DataSource="{value: Items}">
+        <ItemTemplate>
+            {{value: Title}}
+        </ItemTemplate>
+    </dot:Repeater>
+</dot:Content>
+

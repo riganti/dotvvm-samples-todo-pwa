@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Riganti.Utils.Infrastructure.Core;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TodoPwa.BL.Models;
 using TodoPwa.DAL.Entities;
@@ -28,6 +29,12 @@ namespace TodoPwa.BL.Facades
             using var unitOfWork = unitOfWorkProvider.Create();
             todoItemRepository.Insert(mapper.Map<TodoItemEntity>(todoItemInsertModel));
             await unitOfWork.CommitAsync();
+        }
+
+        public async Task<List<TodoItemListModel>> GetAllAsync()
+        {
+            using var unitOfWork = unitOfWorkProvider.Create();
+            return mapper.Map<List<TodoItemListModel>>(await todoItemRepository.GetAllAsync());
         }
     }
 }

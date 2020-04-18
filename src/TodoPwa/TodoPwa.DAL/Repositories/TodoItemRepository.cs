@@ -1,5 +1,8 @@
-﻿using Riganti.Utils.Infrastructure.Core;
+﻿using Microsoft.EntityFrameworkCore;
+using Riganti.Utils.Infrastructure.Core;
 using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using TodoPwa.DAL.Entities;
 
 namespace TodoPwa.DAL.Repositories
@@ -9,6 +12,11 @@ namespace TodoPwa.DAL.Repositories
         public TodoItemRepository(IUnitOfWorkProvider unitOfWorkProvider, IDateTimeProvider dateTimeProvider)
             : base(unitOfWorkProvider, dateTimeProvider)
         {
+        }
+
+        public async Task<List<TodoItemEntity>> GetAllAsync()
+        {
+            return await Context.TodoItems.ToListAsync();
         }
     }
 }

@@ -15,7 +15,7 @@ namespace TodoPwa.Web.ViewModels
             this.todoItemFacade = todoItemFacade;
         }
 
-        public async Task Insert()
+        public async Task Save()
         {
             await todoItemFacade.InsertAsync(TodoItemInsertModel);
         }

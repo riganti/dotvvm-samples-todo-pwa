@@ -15,7 +15,7 @@ namespace TodoPwa.Web
 
         private void ConfigureRoutes(DotvvmConfiguration config, string applicationPath)
         {
-            config.RouteTable.Add("Default", "", "Views/Default.dothtml");
+            config.RouteTable.Add("TodoItemListPage", "", "Views/TodoItemListPage.dothtml");
             config.RouteTable.Add("TodoItemNewPage", "todo-item-new", "Views/TodoItemNewPage.dothtml");
         }
 
