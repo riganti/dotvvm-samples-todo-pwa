@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
   </PropertyGroup>
   <ItemGroup>
     <Content Include="**/*.dothtml;**/*.dotmaster;**/*.dotcontrol" Exclude="obj/**/*.*;bin/**/*.*" CopyToPublishDirectory="Always" />
@@ -8,6 +9,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="dotvvm_serialized_config.json.tmp" />
+    <None Remove="Resources\Scripts\OfflineFallbackRouteHandler.ts" />
+    <None Remove="Resources\service-worker.ts" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="9.0.0" />
@@ -28,5 +31,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Resources\Scripts\OfflineFallbackRouteHandler.ts" />
+    <TypeScriptCompile Include="Resources\Scripts\service-worker.ts" />
   </ItemGroup>
 </Project>

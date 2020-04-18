@@ -1,0 +1,26 @@
+{
+  "name": "todo.pwa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "scripts": {
+    "build": "webpack"
+  },
+  "author": "Riganti s.r.o.",
+  "license": "MIT",
+  "devDependencies": {
+    "fs": "0.0.2",
+    "ts-loader": "^7.0.0",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "workbox-expiration": "5.1.2",
+    "workbox-precaching": "^5.1.2",
+    "workbox-routing": "^5.1.2",
+    "workbox-strategies": "^5.1.2",
+    "workbox-sw": "^5.1.2"
+  }
+}
