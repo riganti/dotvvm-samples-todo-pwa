@@ -26,5 +26,15 @@ namespace TodoPwa.DAL.Repositories
                 .Where(todoItem => todoItem.User.Username == username)
                 .ToListAsync();
         }
+
+        public async Task<List<TodoItemEntity>> GetByNotificationTimeAsync(DateTime notificationTime)
+        {
+            return await Context.TodoItems
+                .Where(todoItem => todoItem.NotificationTime.HasValue 
+                                   && todoItem.NotificationTime.Value.Date == notificationTime.Date 
+                                   && todoItem.NotificationTime.Value.Hour == notificationTime.Hour 
+                                   && todoItem.NotificationTime.Value.Minute == notificationTime.Minute)
+                .ToListAsync();
+        }
     }
 }

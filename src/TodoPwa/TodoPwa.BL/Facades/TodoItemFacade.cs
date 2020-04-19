@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Riganti.Utils.Infrastructure.Core;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using TodoPwa.BL.Models;
@@ -52,6 +53,12 @@ namespace TodoPwa.BL.Facades
         {
             using var unitOfWork = unitOfWorkProvider.Create();
             return mapper.Map<List<TodoItemListModel>>(await todoItemRepository.GetByUsernameAsync(username));
+        }
+
+        public async Task<List<TodoItemNotificationModel>> GetByNotificationTimeAsync(DateTime notificationTime)
+        {
+            using var unitOfWork = unitOfWorkProvider.Create();
+            return mapper.Map<List<TodoItemNotificationModel>>(await todoItemRepository.GetByNotificationTimeAsync(notificationTime));
         }
     }
 }
