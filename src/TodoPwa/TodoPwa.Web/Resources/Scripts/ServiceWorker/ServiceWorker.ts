@@ -1,6 +1,6 @@
 ﻿import { setCacheNameDetails } from "workbox-core"
-import { registerRoute, setCatchHandler, setDefaultHandler } from "workbox-routing"
-import { precacheAndRoute, precache } from "workbox-precaching"
+import { registerRoute, setCatchHandler} from "workbox-routing"
+import { precacheAndRoute} from "workbox-precaching"
 import { ExpirationPlugin } from "workbox-expiration"
 import { CacheFirst, CacheOnly, NetworkFirst, NetworkOnly, StaleWhileRevalidate } from "workbox-strategies"
 import { OfflineFallbackRouteHandler } from "./OfflineFallbackRouteHandler"
