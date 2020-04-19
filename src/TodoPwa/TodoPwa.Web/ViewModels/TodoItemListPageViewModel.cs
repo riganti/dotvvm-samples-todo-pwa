@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TodoPwa.BL.Facades;
 using TodoPwa.BL.Models;
@@ -10,7 +11,10 @@ namespace TodoPwa.Web.ViewModels
         private readonly ITodoItemFacade todoItemFacade;
         public List<TodoItemListModel> Items { get; set; }
 
-        public TodoItemListPageViewModel(ITodoItemFacade todoItemFacade)
+        public TodoItemListPageViewModel(
+            IHttpContextAccessor httpContextAccessor,
+            ITodoItemFacade todoItemFacade)
+            : base(httpContextAccessor)
         {
             this.todoItemFacade = todoItemFacade;
         }
@@ -21,7 +25,14 @@ namespace TodoPwa.Web.ViewModels
 
             if (!Context.IsPostBack)
             {
-                Items = await todoItemFacade.GetAllAsync();
+                if (Username == null)
+                {
+                    Items = await todoItemFacade.GetAllAsync();
+                }
+                else
+                {
+                    Items = await todoItemFacade.GetByUsernameAsync(Username);
+                }
             }
         }
     }

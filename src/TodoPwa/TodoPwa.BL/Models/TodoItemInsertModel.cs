@@ -9,6 +9,7 @@ namespace TodoPwa.BL.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime? NotificationTime { get; set; }
+        public string Username { get; set; }
     }
 
     public class TodoItemInsertModelMapperProfile : Profile

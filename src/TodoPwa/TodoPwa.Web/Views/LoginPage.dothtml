@@ -1,0 +1,8 @@
+﻿@viewModel TodoPwa.Web.ViewModels.LoginPageViewModel, TodoPwa.Web
+@masterPage Views/MasterPage.dotmaster
+
+<dot:Content ContentPlaceHolderID="MainContent">
+    <dot:TextBox Text="{value: Username}"/>
+    <dot:Button Text="Login" Click="{command: Login()}"/>
+</dot:Content>
+

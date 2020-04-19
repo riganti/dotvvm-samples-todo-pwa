@@ -8,5 +8,6 @@ namespace TodoPwa.BL.Facades
     {
         Task InsertAsync(TodoItemInsertModel todoItemInsertModel);
         Task<List<TodoItemListModel>> GetAllAsync();
+        Task<List<TodoItemListModel>> GetByUsernameAsync(string username);
     }
 }

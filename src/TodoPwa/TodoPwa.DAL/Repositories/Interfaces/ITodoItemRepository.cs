@@ -8,5 +8,6 @@ namespace TodoPwa.DAL.Repositories
     {
         void Insert(TodoItemEntity entity);
         Task<List<TodoItemEntity>> GetAllAsync();
+        Task<List<TodoItemEntity>> GetByUsernameAsync(string username);
     }
 }

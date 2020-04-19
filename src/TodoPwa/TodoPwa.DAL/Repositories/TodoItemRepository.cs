@@ -2,6 +2,7 @@
 using Riganti.Utils.Infrastructure.Core;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TodoPwa.DAL.Entities;
 
@@ -17,6 +18,13 @@ namespace TodoPwa.DAL.Repositories
         public async Task<List<TodoItemEntity>> GetAllAsync()
         {
             return await Context.TodoItems.ToListAsync();
+        }
+
+        public async Task<List<TodoItemEntity>> GetByUsernameAsync(string username)
+        {
+            return await Context.TodoItems
+                .Where(todoItem => todoItem.User.Username == username)
+                .ToListAsync();
         }
     }
 }

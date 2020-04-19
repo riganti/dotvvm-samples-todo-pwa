@@ -1,4 +1,5 @@
-﻿using Riganti.Utils.Infrastructure.Core;
+﻿using Microsoft.AspNetCore.Http;
+using Riganti.Utils.Infrastructure.Core;
 using System.Threading.Tasks;
 using TodoPwa.BL.Facades;
 using TodoPwa.BL.Models;
@@ -13,8 +14,10 @@ namespace TodoPwa.Web.ViewModels
         public TodoItemInsertModel TodoItemInsertModel { get; set; } = new TodoItemInsertModel();
 
         public TodoItemNewPageViewModel(
+            IHttpContextAccessor httpContextAccessor,
             ITodoItemFacade todoItemFacade,
             IDateTimeProvider dateTimeProvider)
+            : base(httpContextAccessor)
         {
             this.todoItemFacade = todoItemFacade;
             this.dateTimeProvider = dateTimeProvider;
@@ -32,6 +35,7 @@ namespace TodoPwa.Web.ViewModels
 
         public async Task Save()
         {
+            TodoItemInsertModel.Username = Username;
             await todoItemFacade.InsertAsync(TodoItemInsertModel);
         }
     }

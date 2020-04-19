@@ -11,23 +11,34 @@ namespace TodoPwa.BL.Facades
     public class TodoItemFacade : ITodoItemFacade
     {
         private readonly ITodoItemRepository todoItemRepository;
+        private readonly IUserRepository userRepository;
         private readonly IMapper mapper;
         private readonly IUnitOfWorkProvider unitOfWorkProvider;
 
         public TodoItemFacade(
             ITodoItemRepository todoItemRepository,
+            IUserRepository userRepository,
             IMapper mapper,
             IUnitOfWorkProvider unitOfWorkProvider)
         {
             this.todoItemRepository = todoItemRepository;
+            this.userRepository = userRepository;
             this.mapper = mapper;
             this.unitOfWorkProvider = unitOfWorkProvider;
         }
 
         public async Task InsertAsync(TodoItemInsertModel todoItemInsertModel)
         {
+            var todoItemEntity = mapper.Map<TodoItemEntity>(todoItemInsertModel);
+
             using var unitOfWork = unitOfWorkProvider.Create();
-            todoItemRepository.Insert(mapper.Map<TodoItemEntity>(todoItemInsertModel));
+            if (todoItemInsertModel.Username != null)
+            {
+                var userEntity = await userRepository.GetByUsernameAsync(todoItemInsertModel.Username);
+                todoItemEntity.UserId = userEntity.Id;
+            }
+
+            todoItemRepository.Insert(todoItemEntity);
             await unitOfWork.CommitAsync();
         }
 
@@ -35,6 +46,12 @@ namespace TodoPwa.BL.Facades
         {
             using var unitOfWork = unitOfWorkProvider.Create();
             return mapper.Map<List<TodoItemListModel>>(await todoItemRepository.GetAllAsync());
+        }
+
+        public async Task<List<TodoItemListModel>> GetByUsernameAsync(string username)
+        {
+            using var unitOfWork = unitOfWorkProvider.Create();
+            return mapper.Map<List<TodoItemListModel>>(await todoItemRepository.GetByUsernameAsync(username));
         }
     }
 }
