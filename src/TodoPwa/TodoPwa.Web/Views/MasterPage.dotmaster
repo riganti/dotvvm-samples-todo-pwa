@@ -6,9 +6,13 @@
     <meta charset="utf-8" />
     <title>TODO PWA</title>
     <link rel="icon" type="image/png" sizes="64x64" href="/images/icon-64x64.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="/images/icon-128x128.png" />
     <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#FBC93C" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 </head>
 <body>
+    Page Title
 	<dot:ContentPlaceHolder ID="MainContent" />
 </body>
 

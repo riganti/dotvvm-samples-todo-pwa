@@ -26,7 +26,8 @@ setCacheNameDetails({
 
 precacheAndRoute([
     { url: offlineFallbackPage, revision: null },
-    { url: "/offline/logo.png", revision: null }
+    { url: "/offline/logo.png", revision: null },
+    { url: "/?source=1", revision: null }
 ]);
 
 registerRoute("/online-status-check", new NetworkOnly());
