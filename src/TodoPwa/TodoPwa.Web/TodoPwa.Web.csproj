@@ -41,5 +41,6 @@
     </TypeScriptCompile>
     <TypeScriptCompile Include="Resources\Scripts\ServiceWorker\OfflineFallbackRouteHandler.ts" />
     <TypeScriptCompile Include="Resources\Scripts\ServiceWorker\ServiceWorker.ts" />
+    <TypeScriptCompile Include="wwwroot\.well-known\assetlinks.json" />
   </ItemGroup>
 </Project>

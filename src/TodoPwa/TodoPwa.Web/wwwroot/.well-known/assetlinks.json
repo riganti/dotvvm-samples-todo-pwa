@@ -1,0 +1,12 @@
+﻿[
+  {
+    "relation": [ "delegate_permission/common.handle_all_urls" ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "dotvvm.todo.pwa",
+      "sha256_cert_fingerprints": [
+        "D6:F3:6F:2D:35:6F:5D:6A:41:98:80:29:DC:5E:C1:ED:35:D2:AB:86:5A:26:36:1A:45:2B:DB:EA:0C:AD:CD:0F"
+      ]
+    }
+  }
+]
