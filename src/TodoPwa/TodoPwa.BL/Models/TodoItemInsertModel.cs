@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using System;
 using TodoPwa.DAL.Entities;
 
 namespace TodoPwa.BL.Models
@@ -7,6 +8,7 @@ namespace TodoPwa.BL.Models
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public DateTime? NotificationTime { get; set; }
     }
 
     public class TodoItemInsertModelMapperProfile : Profile

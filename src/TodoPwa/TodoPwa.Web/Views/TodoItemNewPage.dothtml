@@ -4,5 +4,6 @@
 <dot:Content ContentPlaceHolderID="MainContent">
     <dot:TextBox Text="{value: TodoItemInsertModel.Title}" Type="Normal" />
     <dot:TextBox Text="{value: TodoItemInsertModel.Description}" Type="MultiLine" />
+    <dot:TextBox Text="{value: TodoItemInsertModel.NotificationTime}" Type="DateTimeLocal" />
     <dot:Button Text="Save" Click="{command: Save()}" />
 </dot:Content>
