@@ -8,7 +8,7 @@ namespace TodoPwa.Web.ViewModels
             : base(httpContextAccessor)
         {
         }
-
+        public string Title { get; set; } = "Login";
         public void Login()
         {
             httpContextAccessor.HttpContext.Response.Cookies.Append("username", Username);

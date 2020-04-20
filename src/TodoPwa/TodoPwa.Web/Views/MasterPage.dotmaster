@@ -12,8 +12,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
 </head>
 <body>
-    Page Title
-	<dot:ContentPlaceHolder ID="MainContent" />
+    <%--Page Title--%>
+    <main>
+        <section>
+            <div class="container">
+                <dot:ContentPlaceHolder ID="MainContent" />
+            </div>
+        </section>
+    </main>
+    <footer>
+        <dot:Literal Text="Created by DotVVM" />
+    </footer>
 </body>
 
 <dot:InlineScript>
@@ -21,5 +30,5 @@
         navigator.serviceWorker.register('/service-worker.js');
     }
 </dot:InlineScript>
-<dot:RequiredResource Name="app-js"/>
+<dot:RequiredResource Name="app-js" />
 </html>

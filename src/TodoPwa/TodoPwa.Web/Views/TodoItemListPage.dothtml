@@ -3,9 +3,12 @@
 
 <dot:Content ContentPlaceHolderID="MainContent">
     <dot:Literal Visible="{value: IsPageOffline}" Text="Page is offline" />
-    <dot:Repeater DataSource="{value: Items}">
+    <dot:Repeater DataSource="{value: Items}" class="todo_list">
         <ItemTemplate>
-            {{value: Title}}
+            <div class="todo_item">
+                <h3>{{value: Title}}</h3>
+                <p>{{value: Description}}</p>
+            </div>
         </ItemTemplate>
     </dot:Repeater>
 </dot:Content>
