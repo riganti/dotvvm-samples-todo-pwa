@@ -1,0 +1,22 @@
+@import "variables";
+
+:root {
+    --color-black: #{$color-black};
+    --color-white: #{$color-white};
+    --color-trans: #{$color-trans};
+    --color-nav: #{$color-nav};
+    --color-primary: #{$color-primary};
+    --color-primary--hover: #{$color-primary--hover};
+    --color-secondary: #{$color-secondary};
+    --color-bg: #{$color-bg};
+    --trans-time: #{$trans-time};
+    --animate-all: #{$animate-all};
+    --pad-xxl: #{$pad-xxl};
+    --pad-xl: #{$pad-xl};
+    --pad-l: #{$pad-l};
+    --pad-m: #{$pad-m};
+    --pad-s: #{$pad-s};
+    --font-text: #{$font-text};
+    --font-title: #{$font-title};
+    --radius: #{$radius};
+}

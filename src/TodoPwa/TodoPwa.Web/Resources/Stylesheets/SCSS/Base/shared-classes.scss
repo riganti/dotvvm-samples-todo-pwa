@@ -1,0 +1,13 @@
+@import "mixins";
+
+.text-to-center {
+    text-align: center;
+}
+
+.flex {
+    @include flex-wrapper-row(0, 0, auto, center);
+}
+
+.black {
+    color: var(--color-secondary);
+}

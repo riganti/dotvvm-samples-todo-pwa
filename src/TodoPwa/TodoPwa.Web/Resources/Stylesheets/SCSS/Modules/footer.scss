@@ -1,0 +1,19 @@
+@import "../base/global";
+
+footer {
+    padding: var(--pad-l);
+    text-align: center;
+
+    > span {
+        font-size: medium;
+        font-weight: 500;
+    }
+
+    a {
+        color: var(--color-primary);
+
+        &:hover {
+            color: var(--color-primary--hover);
+        }
+    }
+}

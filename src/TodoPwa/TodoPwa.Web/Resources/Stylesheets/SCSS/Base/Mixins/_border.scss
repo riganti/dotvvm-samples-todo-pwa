@@ -1,0 +1,43 @@
+:root {
+    --color-border: rgba(0,0,0,1);
+    --border-width: .1rem;
+    --box-shadow-alpha: .3;
+}
+
+@mixin border($var-direction: "def", $var-width: var(--border-width), $var-color: var(--color-border)) {
+
+
+    @if $var-direction == 'def' {
+        border: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'bottom' {
+        border-bottom: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'top' {
+        border-top: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'right' {
+        border-right: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'left' {
+        border-left: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'tb' {
+        border-bottom: $var-width solid $var-color;
+        border-top: $var-width solid $var-color;
+    }
+
+    @if $var-direction == 'lr' {
+        border-left: $var-width solid $var-color;
+        border-right: $var-width solid $var-color;
+    }
+}
+
+@mixin box-shadow($var-alpha: var(--box-shadow-alpha)) {
+    box-shadow: 0px 0px 10px 3px hsla(0, 0%, 0%, $var-alpha);
+}

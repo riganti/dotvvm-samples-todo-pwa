@@ -13,6 +13,7 @@ namespace TodoPwa.Web
             ConfigureRoutes(config, applicationPath);
             ConfigureControls(config, applicationPath);
             ConfigureResources(config, applicationPath);
+            ConfigureStylesheets(config, applicationPath);
         }
 
         private void ConfigureRoutes(DotvvmConfiguration config, string applicationPath)
@@ -34,6 +35,11 @@ namespace TodoPwa.Web
             {
                 Location = new FileResourceLocation("wwwroot/app.js")
             });
+        }
+
+        private void ConfigureStylesheets(DotvvmConfiguration config, string applicationPath)
+        {
+            config.Resources.Register("style-css", new StylesheetResource(new FileResourceLocation("wwwroot/css/style.min.css")));
         }
 
         public void ConfigureServices(IDotvvmServiceCollection options)

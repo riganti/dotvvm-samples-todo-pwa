@@ -3,17 +3,18 @@
 
 <dot:Content ContentPlaceHolderID="MainContent">
     <form class="form">
+        <h1>New TODO</h1>
         <div class="form__item">
             <label for="Title">Title</label>
-            <dot:TextBox Text="{value: TodoItemInsertModel.Title}" Type="Normal" ID="Title" />
+            <dot:TextBox Text="{value: TodoItemInsertModel.Title}" Type="Normal" ID="Title" class="text-box" />
         </div>
         <div class="form__item">
             <label for="Desc">Description</label>
-            <dot:TextBox Text="{value: TodoItemInsertModel.Description}" Type="MultiLine" ID="Desc" />
+            <dot:TextBox Text="{value: TodoItemInsertModel.Description}" Type="MultiLine" ID="Desc" class="text-box" />
         </div>
         <div class="form__item">
             <label for="NotificationTime">Notification time</label>
-            <dot:TextBox Text="{value: TodoItemInsertModel.NotificationTime}" Type="DateTimeLocal" ID="NotificationTime" />
+            <dot:TextBox Text="{value: TodoItemInsertModel.NotificationTime}" Type="DateTimeLocal" ID="NotificationTime" class="text-box" />
         </div>
         <div class="text-to-center">
             <dot:Button Text="Save" ButtonTagName="button" class="button" Click="{command: Save()}" />

@@ -1,0 +1,16 @@
+@import "../base/global";
+
+.text-box {
+    padding: var(--pad-m) var(--pad-l);
+    border: none;
+    border-radius: var(--radius);
+    font-family: var(--font-text);
+    font-size: medium;
+    font-style: normal;
+}
+
+textarea.text-box {
+    min-height: 10rem;
+    max-height: 20rem;
+    resize: vertical;
+}

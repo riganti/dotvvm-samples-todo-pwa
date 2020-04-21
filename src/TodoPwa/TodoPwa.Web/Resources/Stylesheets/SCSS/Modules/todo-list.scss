@@ -1,0 +1,42 @@
+@import "../Base/global";
+
+.todo {
+    &__list {
+        display: grid;
+        align-items: stretch;
+        justify-content: space-between;
+        margin-top: var(--pad-xl);
+        grid-gap: var(--pad-l);
+        grid-template-columns: repeat(4, 1fr);
+
+        @include res-max-tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include res-max-mobile-s {
+            margin-top: var(--pad-l);
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        padding: var(--pad-l);
+        background-color: var(--color-secondary);
+        border-radius: var(--radius);
+        @include box-shadow;
+
+        > h3 {
+            margin-bottom: var(--pad-l);
+            font-size: x-large;
+            color: var(--color-primary);
+        }
+
+        > p {
+            margin: 0;
+            font-size: medium;
+            color: var(--color-white);
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+    }
+}

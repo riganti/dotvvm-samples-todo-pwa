@@ -1,0 +1,168 @@
+﻿@import "../variables";
+
+// From 0 to - Max
+@mixin res-max-mobile-s {
+    @media only screen and (max-width: $width-mobile-s) {
+        @content;
+    }
+}
+
+@mixin res-max-mobile-m {
+    @media only screen and (max-width: $width-mobile-m) {
+        @content;
+    }
+}
+
+@mixin res-max-mobile-l {
+    @media only screen and (max-width: $width-mobile-l) {
+        @content;
+    }
+}
+
+@mixin res-max-tablet {
+    @media only screen and (max-width: $width-tablet) {
+        @content;
+    }
+}
+
+@mixin res-max-laptop-s {
+    @media only screen and (max-width: $width-laptop-s) {
+        @content;
+    }
+}
+
+@mixin res-max-laptop-m {
+    @media only screen and (max-width: $width-laptop-m) {
+        @content;
+    }
+}
+
+@mixin res-max-laptop-l {
+    @media only screen and (max-width: $width-laptop-l) {
+        @content;
+    }
+}
+
+@mixin res-max-laptop-xl {
+    @media only screen and (max-width: $width-laptop-xl) {
+        @content;
+    }
+}
+
+@mixin res-max-4k {
+    @media only screen and (max-width: $width-4k) {
+        @content;
+    }
+}
+
+// From Min to - all (Max is not set)
+@mixin res-min-mobile-s {
+    @media only screen and (min-width: ($width-mobile-s) + 1px) {
+        @content;
+    }
+}
+
+@mixin res-min-mobile-m {
+    @media only screen and (min-width: ($width-mobile-m) + 1px) {
+        @content;
+    }
+}
+
+@mixin res-min-mobile-l {
+    @media only screen and (min-width: ($width-mobile-l) + 1px) {
+        @content;
+    }
+}
+
+@mixin res-min-tablet {
+    @media only screen and (min-width: ($width-tablet) + 1px) {
+        @content;
+    }
+}
+
+@mixin res-min-laptop-s {
+    @media only screen and (min-width: ($width-laptop-s) + 1px) {
+        @content;
+    }
+}
+
+@mixin res-min-laptop-m {
+    @media only screen and (min-width: ($width-laptop-m) + 1px) {
+        @content;
+    }
+}
+
+@mixin res-min-laptop-l {
+    @media only screen and (min-width: ($width-laptop-l) + 1px) {
+        @content;
+    }
+}
+
+@mixin res-min-laptop-xl {
+    @media only screen and (min-width: ($width-laptop-xl) + 1px) {
+        @content;
+    }
+}
+
+@mixin res-min-4k {
+    @media only screen and (min-width: ($width-4k) + 1px) {
+        @content;
+    }
+}
+
+// From Min to - Max
+@mixin res-min-mobile-s-max-mobile-m {
+    @media only screen and (min-width: ($width-mobile-s) + 1px) and (max-width: $width-mobile-m) {
+        @content;
+    }
+}
+
+@mixin res-min-mobile-m-max-mobile-l {
+    @media only screen and (min-width: ($width-mobile-m) + 1px) and (max-width: $width-mobile-l) {
+        @content;
+    }
+}
+
+@mixin res-min-mobile-l-max-tablet {
+    @media only screen and (min-width: ($width-mobile-l) + 1px) and (max-width: $width-tablet) {
+        @content;
+    }
+}
+
+@mixin res-min-tablet-max-laptop-s {
+    @media only screen and (min-width: ($width-tablet) + 1px) and (max-width: $width-laptop-s) {
+        @content;
+    }
+}
+
+@mixin res-min-laptop-s-max-laptop-m {
+    @media only screen and (min-width: ($width-laptop-s) + 1px) and (max-width: $width-laptop-m) {
+        @content;
+    }
+}
+
+@mixin res-min-laptop-m-max-laptop-l {
+    @media only screen and (min-width: ($width-laptop-m) + 1px) and (max-width: $width-laptop-l) {
+        @content;
+    }
+}
+
+@mixin res-min-laptop-l-max-laptop-xl {
+    @media only screen and (min-width: ($width-laptop-l) + 1px) and (max-width: $width-laptop-xl) {
+        @content;
+    }
+}
+
+@mixin res-min-laptop-xl-max-4k {
+    @media only screen and (min-width: ($width-laptop-xl) + 1px) and (max-width: $width-4k) {
+        @content;
+    }
+}
+
+// Mixin for Retina displays
+@mixin res-retina {
+
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+        @content;
+    }
+}

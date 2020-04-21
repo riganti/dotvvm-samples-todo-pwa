@@ -10,7 +10,7 @@ namespace TodoPwa.Web.ViewModels
 
         public string Username { get; set; }
         public bool IsPageOffline { get; set; } = false;
-
+        public string CurrentRoute => Context.Route.RouteName;
         public MasterPageViewModel(IHttpContextAccessor httpContextAccessor)
         {
             this.httpContextAccessor = httpContextAccessor;

@@ -1,0 +1,18 @@
+@import "../base/global";
+
+.container {
+    width: 65%;
+    min-width: 115rem;
+    max-width: $width-laptop-l;
+    margin: 0 auto;
+
+    @include res-max-laptop-l {
+        width: 80%;
+    }
+
+    @include res-max-laptop-m {
+        width: 100%;
+        min-width: 0;
+        padding: 0 var(--pad-l);
+    }
+}

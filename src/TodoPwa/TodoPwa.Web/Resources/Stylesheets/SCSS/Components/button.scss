@@ -1,0 +1,23 @@
+@import "../base/global";
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 16rem;
+    padding: var(--pad-l) var(--pad-l);
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: var(--radius);
+    font-size: large;
+    font-weight: 500;
+    color: var(--color-white);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color var(--trans-time) ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-primary--hover);
+    }
+}

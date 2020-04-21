@@ -2,11 +2,11 @@
 @masterPage Views/MasterPage.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
-    <h1>{{value: Title}}</h1>
     <form class="form">
+        <h1>{{value: Title}}</h1>
         <div class="form__item">
             <label for="UserName">Username</label>
-            <dot:TextBox Text="{value: Username}" ID="UserName" name="fname" />
+            <dot:TextBox Text="{value: Username}" ID="UserName" name="fname" class="text-box" />
         </div>
         <div class="text-to-center">
             <dot:Button Text="Login" Click="{command: Login()}" class="button" ButtonTagName="button" />

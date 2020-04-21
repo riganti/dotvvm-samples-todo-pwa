@@ -10,9 +10,17 @@
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#FBC93C" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+    <dot:RequiredResource Name="style-css" />
 </head>
 <body>
-    <%--Page Title--%>
+    <nav class="nav" Visible="{value: CurrentRoute != "Default"}">
+        <ul class="nav__menu">
+            <li class="nav__item">
+                <dot:RouteLink RouteName="TodoItemListPage" Text="TODO List" Class-active="{value: CurrentRoute == "TodoItemListPage"}" />
+            </li>
+        </ul>
+    </nav>
     <main>
         <section>
             <div class="container">
@@ -21,7 +29,10 @@
         </section>
     </main>
     <footer>
-        <dot:Literal Text="Created by DotVVM" />
+        <span>
+            Created by
+            <a href="https://www.dotvvm.com/" target="_blank">DotVVM</a>
+        </span>
     </footer>
 </body>
 
