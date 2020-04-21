@@ -151,8 +151,12 @@ body {
         .flex > *:not(:last-child) {
           margin-bottom: 1rem; } }
 
-.black {
+.custom-title {
   color: var(--color-secondary); }
+  .custom-title > small {
+    display: block;
+    font-size: .6em;
+    color: red; }
 
 :root {
   --color-border: rgba(0,0,0,1);

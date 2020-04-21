@@ -2,9 +2,11 @@
 @masterPage Views/MasterPage.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
-    <dot:Literal Visible="{value: IsPageOffline}" Text="Page is offline" />
     <div class="flex">
-        <h1 class="black">TODO List</h1>
+        <h1 class="custom-title">
+            TODO List
+            <small Visible="{value: IsPageOffline}">Page is offline</small>
+        </h1>
         <dot:RouteLink RouteName="TodoItemNewPage" Text="Add TODO" class="button" />
     </div>
     <dot:Repeater DataSource="{value: Items}" class="todo__list">

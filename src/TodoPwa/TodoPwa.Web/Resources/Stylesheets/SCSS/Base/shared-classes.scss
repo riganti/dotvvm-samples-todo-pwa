@@ -8,6 +8,12 @@
     @include flex-wrapper-row(0, 0, auto, center);
 }
 
-.black {
+.custom-title {
     color: var(--color-secondary);
+
+    > small {
+        display: block;
+        font-size: .6em;
+        color: red;
+    }
 }
