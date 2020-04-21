@@ -10,7 +10,7 @@ namespace TodoPwa.Web.ViewModels
     {
         private readonly ITodoItemFacade todoItemFacade;
         public List<TodoItemListModel> Items { get; set; }
-
+        public bool IsChecked { get; set; }
         public TodoItemListPageViewModel(
             IHttpContextAccessor httpContextAccessor,
             ITodoItemFacade todoItemFacade)

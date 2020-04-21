@@ -35,4 +35,12 @@ body {
     font-family: var(--font-text);
     background-size: 24rem;
     overflow-x: hidden;
+
+    @include res-max-tablet {
+        background-size: 14rem;
+    }
+
+    @include res-max-mobile-l {
+        background-size: 10rem;
+    }
 }

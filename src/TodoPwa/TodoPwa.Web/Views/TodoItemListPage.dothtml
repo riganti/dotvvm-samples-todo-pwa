@@ -9,10 +9,10 @@
     </div>
     <dot:Repeater DataSource="{value: Items}" class="todo__list">
         <ItemTemplate>
-            <div class="todo__item">
+            <dot:CheckBox Checked="{value: _root.IsChecked}" class="todo__item" Class-todo__item--checked="{value: _root.IsChecked}">
                 <h3>{{value: Title}}</h3>
                 <p>{{value: Description}}</p>
-            </div>
+            </dot:CheckBox>
         </ItemTemplate>
     </dot:Repeater>
 </dot:Content>
