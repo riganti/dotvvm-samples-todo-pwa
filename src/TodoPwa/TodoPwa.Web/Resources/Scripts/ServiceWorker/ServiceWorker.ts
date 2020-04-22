@@ -31,7 +31,17 @@ const firebaseConfig = {
 };
 
 firebase.initializeApp(firebaseConfig);
-firebase.messaging();
+const messaging = firebase.messaging();
+messaging.setBackgroundMessageHandler(payload => {
+    const notification = JSON.parse(payload.data.notification);
+    const notificationTitle = notification.title;
+    const notificationOptions: NotificationOptions = {
+        body: notification.body
+    };
+
+    return self.registration.showNotification(notificationTitle, notificationOptions);
+});
+
 
 setCacheNameDetails({
     prefix: cacheNamePrefix,

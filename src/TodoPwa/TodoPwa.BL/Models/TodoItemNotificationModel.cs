@@ -6,6 +6,7 @@ namespace TodoPwa.BL.Models
     public class TodoItemNotificationModel
     {
         public string Title { get; set; }
+        public string Description { get; set; }
     }
 
     public class TodoItemNotificationModelMapperProfile : Profile

@@ -21,8 +21,8 @@ namespace TodoPwa.BL.Models
         {
             CreateMap<TodoItemNotificationModel, PushNotificationContentModel>()
                 .ForMember(dst => dst.Title, option => option.MapFrom(src => src.Title))
-                .ForMember(dst => dst.Body, option => option.MapFrom(src => ""))
-                .ForMember(dst => dst.ClickAction, option => option.MapFrom(src => ""));
+                .ForMember(dst => dst.Body, option => option.MapFrom(src => src.Description))
+                .ForMember(dst => dst.ClickAction, option => option.MapFrom(src => "https://app-todo-pwa.azurewebsites.net/"));
         }
     }
 }

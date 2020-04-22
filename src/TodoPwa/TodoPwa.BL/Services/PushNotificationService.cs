@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Options;
+﻿using AutoMapper;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -12,20 +13,23 @@ namespace TodoPwa.BL.Services
     {
         private readonly IOptions<PushNotificationOptions> pushNotificationOptions;
         private readonly IRestClient restClient;
+        private readonly IMapper mapper;
 
         public PushNotificationService(
             IOptions<PushNotificationOptions> pushNotificationOptions,
-            IRestClient restClient)
+            IRestClient restClient,
+            IMapper mapper)
         {
             this.pushNotificationOptions = pushNotificationOptions;
             this.restClient = restClient;
+            this.mapper = mapper;
         }
 
         public async Task SendNotificationAsync(TodoItemNotificationModel todoItemNotificationModel)
         {
             restClient.BaseUrl = new Uri(pushNotificationOptions.Value.FirebaseUrlBase);
 
-            var pushNotificationModel = new PushNotificationModel();
+            var pushNotificationModel = mapper.Map<PushNotificationModel>(todoItemNotificationModel);
             var pushNotificationString = JsonConvert.SerializeObject(pushNotificationModel);
 
             var request = new RestRequest(pushNotificationOptions.Value.FirebasePushNotificationSendEndpoint, Method.POST);
