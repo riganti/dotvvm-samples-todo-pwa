@@ -2,8 +2,22 @@
 @masterPage Views/MasterPage.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
-    <dot:TextBox Text="{value: TodoItemInsertModel.Title}" Type="Normal" />
-    <dot:TextBox Text="{value: TodoItemInsertModel.Description}" Type="MultiLine" />
-    <dot:TextBox Text="{value: TodoItemInsertModel.NotificationTime}" Type="DateTimeLocal" />
-    <dot:Button Text="Save" Click="{command: Save()}" />
+    <form class="form">
+        <h1>New TODO</h1>
+        <div class="form__item">
+            <label for="Title">Title</label>
+            <dot:TextBox Text="{value: TodoItemInsertModel.Title}" Type="Normal" ID="Title" class="text-box" />
+        </div>
+        <div class="form__item">
+            <label for="Desc">Description</label>
+            <dot:TextBox Text="{value: TodoItemInsertModel.Description}" Type="MultiLine" ID="Desc" class="text-box" />
+        </div>
+        <div class="form__item">
+            <label for="NotificationTime">Notification time</label>
+            <dot:TextBox Text="{value: TodoItemInsertModel.NotificationTime}" Type="DateTimeLocal" ID="NotificationTime" class="text-box" />
+        </div>
+        <div class="text-to-center">
+            <dot:Button Text="Save" ButtonTagName="button" class="button" Click="{command: Save()}" />
+        </div>
+    </form>
 </dot:Content>

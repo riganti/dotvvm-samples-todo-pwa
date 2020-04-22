@@ -2,10 +2,19 @@
 @masterPage Views/MasterPage.dotmaster
 
 <dot:Content ContentPlaceHolderID="MainContent">
-    <dot:Literal Visible="{value: IsPageOffline}" Text="Page is offline" />
-    <dot:Repeater DataSource="{value: Items}">
+    <div class="flex">
+        <h1 class="custom-title">
+            TODO List
+            <small Visible="{value: IsPageOffline}">Page is offline</small>
+        </h1>
+        <dot:RouteLink RouteName="TodoItemNewPage" Text="Add TODO" class="button" />
+    </div>
+    <dot:Repeater DataSource="{value: Items}" class="todo__list">
         <ItemTemplate>
-            {{value: Title}}
+            <dot:CheckBox Checked="{value: _root.IsChecked}" class="todo__item" Class-todo__item--checked="{value: _root.IsChecked}">
+                <h3>{{value: Title}}</h3>
+                <p>{{value: Description}}</p>
+            </dot:CheckBox>
         </ItemTemplate>
     </dot:Repeater>
 </dot:Content>

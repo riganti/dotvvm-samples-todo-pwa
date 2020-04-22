@@ -1,0 +1,9 @@
+﻿@import "../base/global";
+
+section {
+    padding: 16rem 0 8rem 0;
+
+    @include res-max-laptop-l {
+        padding: 8rem 0;
+    }
+}

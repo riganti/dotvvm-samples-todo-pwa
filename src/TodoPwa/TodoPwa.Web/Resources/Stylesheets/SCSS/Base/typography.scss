@@ -1,0 +1,36 @@
+@import "../Base/global";
+
+h1 {
+    margin-bottom: var(--pad-m);
+    font-size: xx-large;
+    color: var(--color-primary);
+
+    @include res-max-mobile-l {
+        font-size: x-large;
+    }
+}
+
+h2 {
+    margin-bottom: 2rem;
+    font-size: x-large;
+}
+
+h3 {
+    font-size: large;
+}
+
+span, a {
+    font-size: medium;
+
+    @include res-max-mobile-l {
+        font-size: small;
+    }
+}
+
+p {
+    font-size: medium;
+}
+
+small {
+    font-size: xx-small;
+}

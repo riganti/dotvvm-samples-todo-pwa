@@ -1,0 +1,25 @@
+﻿@import "global";
+
+body {
+    display: flex;
+    flex-flow: column wrap;
+
+    nav {
+        flex: none;
+    }
+
+    header {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    main {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    footer {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+}

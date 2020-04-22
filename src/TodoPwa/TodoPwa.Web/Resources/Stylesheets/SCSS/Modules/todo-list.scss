@@ -1,0 +1,66 @@
+@import "../Base/global";
+
+.todo {
+    &__list {
+        display: grid;
+        align-items: stretch;
+        justify-content: space-between;
+        margin-top: var(--pad-xl);
+        grid-gap: var(--pad-l);
+        grid-template-columns: repeat(4, 1fr);
+
+        @include res-max-tablet {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include res-max-mobile-m {
+            margin-top: var(--pad-l);
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__item {
+        position: relative;
+        padding: var(--pad-l);
+        background-color: var(--color-secondary);
+        border-radius: var(--radius);
+        @include box-shadow;
+        cursor: pointer;
+
+        > span {
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        > input[type="checkbox"] {
+            position: absolute;
+            top: 1.8rem;
+            left: 1.3rem;
+            width: 2rem;
+            height: 2rem;
+        }
+
+        h3 {
+            padding-left: 3.2rem;
+            margin-bottom: var(--pad-l);
+            font-size: x-large;
+            color: var(--color-primary);
+        }
+
+        p {
+            margin: 0;
+            font-size: medium;
+            color: var(--color-white);
+            word-wrap: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        &--checked {
+            background-color: var(--color-primary);
+
+            h3, p {
+                color: var(--color-secondary);
+            }
+        }
+    }
+}

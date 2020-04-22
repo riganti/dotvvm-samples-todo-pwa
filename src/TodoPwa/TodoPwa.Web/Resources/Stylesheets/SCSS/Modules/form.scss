@@ -1,0 +1,32 @@
+@import "../base/global";
+
+.form {
+    display: grid;
+    align-items: flex-start;
+    width: 100%;
+    max-width: $width-mobile-l;
+    padding: var(--pad-xl);
+    margin: 0 auto;
+    background-color: var(--color-secondary);
+    border-radius: var(--radius);
+    grid-row-gap: var(--pad-xl);
+    grid-template-columns: 1fr;
+    @include box-shadow;
+
+    &__item {
+        display: grid;
+        align-items: flex-start;
+        grid-row-gap: var(--pad-s);
+        grid-template-columns: 1fr;
+
+        > label {
+            font-size: small;
+            color: var(--color-white);
+            text-transform: uppercase;
+        }
+    }
+
+    .text-to-center {
+        margin-top: var(--pad-l);
+    }
+}

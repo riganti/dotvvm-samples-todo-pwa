@@ -4,12 +4,27 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "build": "webpack"
+    "build": "webpack",
+    "bundle:css": "postcss wwwroot/CSS/style.css --config postcss.config.js | cleancss -o wwwroot/css/style.min.css",
+    "compile:scss": "npm run stylelint && node-sass --source-map=true Resources/Stylesheets/SCSS/style.scss wwwroot/css/style.css",
+    "stylelint": "stylelint --fix Resources/Stylesheets/SCSS/**/*.scss",
+    "watch:scss": "npm run compile:scss && npm run bundle:css"
   },
   "author": "Riganti s.r.o.",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^9.7.6",
+    "clean-css-cli": "^4.3.0",
+    "node-sass": "^4.13.1",
+    "postcss-cli": "^7.1.0",
+    "postcss-value-parser": "^4.0.3",
+    "stylelint": "^13.3.2",
+    "stylelint-order": "^4.0.0",
+    "css-loader": "^3.5.2",
     "fs": "0.0.2",
+    "postcss-loader": "^3.0.0",
+    "sass": "^1.26.3",
+    "sass-loader": "^8.0.2",
     "ts-loader": "^7.0.0",
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^3.8.3",
@@ -23,5 +38,10 @@
     "workbox-routing": "^5.1.2",
     "workbox-strategies": "^5.1.2",
     "workbox-sw": "^5.1.2"
+  },
+  "stylelint": {
+    "enabled": true,
+    "rules": "Resources/.stylelintrc.json",
+    "fileExtensions": "scss"
   }
 }
