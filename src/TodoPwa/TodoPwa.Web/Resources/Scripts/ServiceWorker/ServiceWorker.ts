@@ -4,6 +4,8 @@ import { precacheAndRoute} from "workbox-precaching"
 import { ExpirationPlugin } from "workbox-expiration"
 import { CacheFirst, CacheOnly, NetworkFirst, NetworkOnly, StaleWhileRevalidate } from "workbox-strategies"
 import { OfflineFallbackRouteHandler } from "./OfflineFallbackRouteHandler"
+import { firebase } from "@firebase/app"
+import "@firebase/messaging"
 
 declare let self: ServiceWorkerGlobalScope;
 const serviceWorker = self as ServiceWorkerGlobalScope;
@@ -16,6 +18,20 @@ const cacheNameRuntime = "run-time";
 
 const runtimeCacheFullName = `${cacheNamePrefix}-${cacheNameRuntime}-${cacheNameSuffix}`;
 const precacheCacheFullName = `${cacheNamePrefix}-${cacheNamePrecache}-${cacheNameSuffix}`;
+
+const firebaseConfig = {
+    apiKey: "AIzaSyDKLkuN-fVG10-PXo0qvbYvdERtg_Hm_Zs",
+    authDomain: "dotvvm-todo-pwa.firebaseapp.com",
+    databaseURL: "https://dotvvm-todo-pwa.firebaseio.com",
+    projectId: "dotvvm-todo-pwa",
+    storageBucket: "dotvvm-todo-pwa.appspot.com",
+    messagingSenderId: "768356710764",
+    appId: "1:768356710764:web:e3a053393775d640a31b49",
+    measurementId: "G-PLRKHBNMVH"
+};
+
+firebase.initializeApp(firebaseConfig);
+firebase.messaging();
 
 setCacheNameDetails({
     prefix: cacheNamePrefix,
