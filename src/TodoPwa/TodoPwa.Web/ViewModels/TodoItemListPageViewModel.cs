@@ -35,5 +35,10 @@ namespace TodoPwa.Web.ViewModels
                 }
             }
         }
+
+        public async Task TodoItemChanged(TodoItemListModel todoItemListModel)
+        {
+            await todoItemFacade.UpdateAsync(todoItemListModel);
+        }
     }
 }

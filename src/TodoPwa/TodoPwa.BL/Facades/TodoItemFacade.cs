@@ -43,6 +43,16 @@ namespace TodoPwa.BL.Facades
             await unitOfWork.CommitAsync();
         }
 
+        public async Task UpdateAsync(TodoItemListModel todoItemInsertModel)
+        {
+            using var unitOfWork = unitOfWorkProvider.Create();
+            var todoItemEntity = await todoItemRepository.GetByIdAsync(todoItemInsertModel.Id);
+            mapper.Map(todoItemInsertModel, todoItemEntity);
+
+            todoItemRepository.Update(todoItemEntity);
+            await unitOfWork.CommitAsync();
+        }
+
         public async Task<List<TodoItemListModel>> GetAllAsync()
         {
             using var unitOfWork = unitOfWorkProvider.Create();
