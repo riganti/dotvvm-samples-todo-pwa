@@ -1,0 +1,10 @@
+{
+    "generationTool": "pwabuilder-api",
+    "generationToolVersion": "2.0.1-rc.0",
+    "platformId": "windows10",
+    "platformPackage": "pwabuilder-windows10",
+    "platformVersion": "2.0.4-rc.6",
+    "generatedFrom": "Website Wizard",
+    "generationDate": "2020-04-22 04:29:54 Z",
+    "generatedURL": "https://app-todo-pwa.azurewebsites.net/manifest.json"
+}
