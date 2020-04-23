@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Threading.Tasks;
+using TodoPwa.BL.Facades;
 using TodoPwa.BL.Models;
 using TodoPwa.BL.Options;
 
@@ -13,15 +14,18 @@ namespace TodoPwa.BL.Services
     {
         private readonly IOptions<PushNotificationOptions> pushNotificationOptions;
         private readonly IRestClient restClient;
+        private readonly ITokenFacade tokenFacade;
         private readonly IMapper mapper;
 
         public PushNotificationService(
             IOptions<PushNotificationOptions> pushNotificationOptions,
             IRestClient restClient,
+            ITokenFacade tokenFacade,
             IMapper mapper)
         {
             this.pushNotificationOptions = pushNotificationOptions;
             this.restClient = restClient;
+            this.tokenFacade = tokenFacade;
             this.mapper = mapper;
         }
 
@@ -29,16 +33,25 @@ namespace TodoPwa.BL.Services
         {
             restClient.BaseUrl = new Uri(pushNotificationOptions.Value.FirebaseUrlBase);
 
-            var pushNotificationModel = mapper.Map<PushNotificationModel>(todoItemNotificationModel);
-            var pushNotificationString = JsonConvert.SerializeObject(pushNotificationModel);
+            if (todoItemNotificationModel.UserId != null)
+            {
+                var tokens = await tokenFacade.GetTokensByUserIdAsync(todoItemNotificationModel.UserId.Value);
 
-            var request = new RestRequest(pushNotificationOptions.Value.FirebasePushNotificationSendEndpoint, Method.POST);
-            request.RequestFormat = DataFormat.Json;
+                foreach (var token in tokens)
+                {
+                    var pushNotificationModel = mapper.Map<PushNotificationModel>(todoItemNotificationModel);
+                    pushNotificationModel.To = token;
+                    var pushNotificationString = JsonConvert.SerializeObject(pushNotificationModel);
 
-            request.AddHeader("Authorization", $"key={pushNotificationOptions.Value.FirebaseServerKey}");
-            request.AddParameter("application/json", pushNotificationString, ParameterType.RequestBody);
+                    var request = new RestRequest(pushNotificationOptions.Value.FirebasePushNotificationSendEndpoint, Method.POST);
+                    request.RequestFormat = DataFormat.Json;
 
-            var response = await restClient.ExecutePostAsync(request);
+                    request.AddHeader("Authorization", $"key={pushNotificationOptions.Value.FirebaseServerKey}");
+                    request.AddParameter("application/json", pushNotificationString, ParameterType.RequestBody);
+
+                    await restClient.ExecutePostAsync(request);
+                }
+            }
         }
     }
 }

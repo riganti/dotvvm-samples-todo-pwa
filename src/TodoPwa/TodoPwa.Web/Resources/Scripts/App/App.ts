@@ -55,5 +55,5 @@ dotvvm.events.init.subscribe(async () => {
     messaging.useServiceWorker(serviceWorkerRegistration);
     await messaging.requestPermission();
     const token = await messaging.getToken();
-    console.log(token);
+    dotvvm.viewModels.root.viewModel.Token(token);
 });

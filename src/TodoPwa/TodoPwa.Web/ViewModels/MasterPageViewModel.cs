@@ -9,7 +9,9 @@ namespace TodoPwa.Web.ViewModels
         protected readonly IHttpContextAccessor httpContextAccessor;
 
         public string Username { get; set; }
+
         public bool IsPageOffline { get; set; } = false;
+        public string Token { get; set; }
         public string CurrentRoute => Context.Route.RouteName;
         public MasterPageViewModel(IHttpContextAccessor httpContextAccessor)
         {
