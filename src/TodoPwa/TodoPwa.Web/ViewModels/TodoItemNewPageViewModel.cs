@@ -37,6 +37,7 @@ namespace TodoPwa.Web.ViewModels
         {
             TodoItemInsertModel.Username = Username;
             await todoItemFacade.InsertAsync(TodoItemInsertModel);
+            Context.RedirectToRoute("TodoItemListPage");
         }
     }
 }
