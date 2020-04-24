@@ -7,7 +7,7 @@
   "background_color": "#FFFFFF",
   "permissions": [ "gcm", "storage", "notifications" ],
   "Scope": "/",
-  "start_url": "/?source=1",
+  "start_url": "/",
   "icons": [
     {
       "src": "/images/icon-64x64.png",
