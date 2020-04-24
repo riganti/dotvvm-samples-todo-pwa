@@ -1,6 +1,7 @@
 ﻿using DotVVM.Framework.ViewModel;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using TodoPwa.BL.Models;
 
 namespace TodoPwa.Web.ViewModels
 {
@@ -12,6 +13,8 @@ namespace TodoPwa.Web.ViewModels
 
         public bool IsPageOffline { get; set; } = false;
         public string Token { get; set; }
+        public PushNotificationContentModel PushNotificationContent { get; set; } = new PushNotificationContentModel();
+
         public string CurrentRoute => Context.Route.RouteName;
         public MasterPageViewModel(IHttpContextAccessor httpContextAccessor)
         {
@@ -29,6 +32,11 @@ namespace TodoPwa.Web.ViewModels
                     Username = username;
                 }
             }
+        }
+
+        public void ClearPushNotificationContent()
+        {
+            PushNotificationContent = new PushNotificationContentModel();
         }
     }
 }

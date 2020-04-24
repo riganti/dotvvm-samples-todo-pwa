@@ -24,6 +24,11 @@
     <main>
         <section>
             <div class="container">
+                <div Visible="{value: PushNotificationContent.Title != null}">
+                    <div>{{value: PushNotificationContent.Title}}</div>
+                    <div>{{value: PushNotificationContent.Body}}</div>
+                    <dot:Button Text="X" Click="{command: ClearPushNotificationContent()}" />
+                </div>
                 <dot:ContentPlaceHolder ID="MainContent" />
             </div>
         </section>

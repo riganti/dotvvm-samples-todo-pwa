@@ -2,6 +2,7 @@
 import { firebase } from "@firebase/app"
 import { FirebaseMessaging } from '@firebase/messaging-types';
 import "@firebase/messaging"
+import { NotificationModel } from "./NotificationModel"
 
 const dotvvm = (window as any).dotvvm as DotVVM;
 
@@ -56,4 +57,12 @@ dotvvm.events.init.subscribe(async () => {
     await messaging.requestPermission();
     const token = await messaging.getToken();
     dotvvm.viewModels.root.viewModel.Token(token);
+
+    messaging.onMessage(value => {
+        const title = value.notification.title;
+        dotvvm.viewModels.root.viewModel.PushNotificationContent().title(title);
+
+        const body = value.notification.body;
+        dotvvm.viewModels.root.viewModel.PushNotificationContent().body(body);
+    });
 });
