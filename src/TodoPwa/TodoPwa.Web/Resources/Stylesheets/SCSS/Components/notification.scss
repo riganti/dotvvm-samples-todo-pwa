@@ -1,0 +1,58 @@
+@import "../base/global";
+
+.notification {
+    position: fixed;
+    top: var(--pad-s);
+    left: 50%;
+    width: 100%;
+    max-width: $width-tablet;
+    padding: var(--pad-m);
+    background-color: var(--color-bg);
+    border-radius: var(--radius);
+    color: var(--color-secondary);
+    text-align: left;
+    transform: translateX(-50%);
+    @include box-shadow(.3);
+
+    @include res-max-mobile-l {
+        right: var(--pad-s);
+        left: var(--pad-s);
+        width: auto;
+        transform: translateX(0);
+    }
+
+    &__title {
+        margin: 0;
+        margin-bottom: var(--pad-m);
+        font-size: x-large;
+
+        @include res-max-mobile-l {
+            font-size: large;
+        }
+    }
+
+    &__desc {
+        font-size: medium;
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 3rem;
+        height: 3rem;
+        background: var(--color-transparent);
+        border: 0;
+        font-size: x-large;
+        font-weight: 600;
+        line-height: 3rem;
+        color: var(--color-alert);
+        text-align: center;
+        transition: color var(--trans-time) ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+            color: darken($color-alert, 10%);
+        }
+    }
+}
